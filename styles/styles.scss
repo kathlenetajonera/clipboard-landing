@@ -178,6 +178,10 @@
                 background-color: $lightBlue;
                 box-shadow: 0 3px 0 0 #5162db;
             }
+
+            &:hover {
+                opacity: .7;
+            }
         }
     }
 }
@@ -204,10 +208,15 @@
             margin: 1rem 0;
     
             .footer-logo {
+                margin-bottom: 1rem;
                 align-self: center;
 
                 img {
                     max-width: 63px;
+                }
+
+                @include mediaQuery(tablet) {
+                    margin-bottom: 0;
                 }
             }
     
@@ -220,6 +229,10 @@
                     a {
                         text-decoration: none;
                         color: $darkGrayishBlue;
+
+                        &:hover {
+                            color: $strongCyan;
+                        }
                     }
                 }
             } 
@@ -244,6 +257,11 @@
                 margin: 0 1rem;
                 color: $darkGrayishBlue;
                 font-size: 1.5rem;
+                cursor: pointer;
+
+                &:hover i {
+                    color: $strongCyan;
+                }
             }
         }
     }
