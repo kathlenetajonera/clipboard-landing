@@ -1,29 +1,42 @@
 @mixin bodyText {
-    color: $grayishBlue;
-    font-size: $font-normal;
-    line-height: 1.5rem;
+  color: $grayishBlue;
+  font-size: $font-normal;
+  line-height: 1.5rem;
 }
 
-$mobileSize: 375px;
-$tabletSize: 768px;
-$desktopSize: 1024px;
+$media-breakpoints: (
+  mobile: 375px,
+  tablet: 768px,
+  desktop: 1024px,
+  desktop-md: 1200px,
+);
 
-@mixin mediaQuery($size) {
-    @if ($size == mobile) {
-        @media (min-width: $mobileSize) {
-            @content;
-        }
-    }
+// $mobileSize: 375px;
+// $tabletSize: 768px;
+// $desktopSize: 1024px;
 
-    @if ($size == tablet) {
-        @media (min-width: $tabletSize) {
-            @content;
-        }
-    }
-
-    @if ($size == desktop) {
-        @media (min-width: $desktopSize) {
-            @content;
-        }
-    }
+@mixin media-query($size) {
+  @media (min-width: map-get($media-breakpoints, $size)) {
+    @content;
+  }
 }
+
+// @mixin mediaQuery($size) {
+//     @if ($size == mobile) {
+//         @media (min-width: $mobileSize) {
+//             @content;
+//         }
+//     }
+
+//     @if ($size == tablet) {
+//         @media (min-width: $tabletSize) {
+//             @content;
+//         }
+//     }
+
+//     @if ($size == desktop) {
+//         @media (min-width: $desktopSize) {
+//             @content;
+//         }
+//     }
+// }
